@@ -1,0 +1,6 @@
+#! /usr/bin/bash
+
+FREEHOMEDISK=$(df -h | sed -n /home/p | awk '{print $3}')
+AVAIHOMEDISK=$(df -h | sed -n /home/p | awk '{print $2, $5}')
+ICON=""
+printf " %s %s\\n" "$ICON " "$FREEHOMEDISK/$AVAIHOMEDISK"

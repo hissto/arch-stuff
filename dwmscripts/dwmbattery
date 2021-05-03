@@ -1,0 +1,33 @@
+#! /bin/bash
+
+BATTERY=$(acpi -b | awk '{print $3,$4}' | sed s/,//g)
+BATTERY_PERCENT=$(echo $BATTERY | awk '{print $2}' | sed s/%//)
+if [ $BATTERY_PERCENT -le 10 ];
+then
+	ICON=""
+	printf " %s %s\\n" "$ICON " "$BATTERY"
+elif [ $BATTERY_PERCENT -le 25 ] && [ $BATTERY_PERCENT -gt 10 ];
+then
+	ICON=""
+	printf " %s %s\\n" "$ICON " "$BATTERY"	
+elif [ $BATTERY_PERCENT -le 50 ] && [ $BATTERY_PERCENT -gt 25 ];
+then
+	ICON=""
+       	printf " %s %s\\n" "$ICON " "$BATTERY"
+elif [ $BATTERY_PERCENT -le 75 ] && [ $BATTERY_PERCENT -gt 50 ];
+then
+	ICON=""
+        printf " %s %s\\n" "$ICON " "$BATTERY"
+else
+	ICON=""
+        printf " %s %s\\n" "$ICON " "$BATTERY"
+fi
+
+
+
+
+
+
+
+
+
